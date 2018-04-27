@@ -22,6 +22,12 @@ mongoose
   .then(() => console.log('MongoDB connected.'))
   .catch(err => console.log(err));
 
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport config
+require('./config/passport')(passport);
+
 // app.get('/', (req, res) => res.send('Hello World!'));
 
 // Use routes
