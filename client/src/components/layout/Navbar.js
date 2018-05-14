@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
+import { cleanCurrentProfile } from '../../actions/profileActions';
 
 class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault();
+    this.props.cleanCurrentProfile();
     this.props.logoutUser();
   }
 
@@ -25,9 +27,10 @@ class Navbar extends Component {
               className="rounded-circle"
               src={user.avatar}
               alt={user.name}
-              style={{ width: '25px', marginRight: '5px'}}
+              style={{ width: '25px', marginRight: '5px' }}
               title="You must have Gravatar connected to your email to dipslay an image"
-            /> Logout
+            />{' '}
+            Logout
           </a>
         </li>
       </ul>
@@ -88,4 +91,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { logoutUser })(Navbar);
+export default connect(mapStateToProps, { logoutUser, cleanCurrentProfile })(
+  Navbar
+);
