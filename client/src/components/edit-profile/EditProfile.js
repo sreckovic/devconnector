@@ -84,7 +84,7 @@ class CreateProfile extends Component {
         status: profile.status,
         skills: skillsCSV,
         githubusername: profile.githubusername,
-        bio: profile.website,
+        bio: profile.bio,
         twitter: profile.twitter,
         facebook: profile.facebook,
         linkedin: profile.linkedin,
