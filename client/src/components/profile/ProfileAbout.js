@@ -10,7 +10,7 @@ class ProfileAbout extends Component {
     const firstName = profile.user.name.trim().split(' ')[0];
     // Skill list
     const skills = profile.skills.map((skill, index) => (
-      <div className="p-3">
+      <div className="p-3" key={index}>
         <i className="fa fa-check" /> {skill}
       </div>
     ));
@@ -38,5 +38,9 @@ class ProfileAbout extends Component {
     );
   }
 }
+
+ProfileAbout.propTypes = {
+  profile: PropTypes.object.isRequired
+};
 
 export default ProfileAbout;
